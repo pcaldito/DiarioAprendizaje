@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Pablo Caldito Gómez">
+        <link rel="stylesheet" href="css/css.css">
+    </head>
+    <body>
+        <header>Diario de Aprendizaje 2</header>
+        <nav>
+            <ul>
+                <li><a href="#http">HTTP</a></li>
+                <li><a href="#web">El servidor Web</a></li>
+                <li><a href="#protocolo">El protocolo HTTP</a></li>
+                <li><a href="#certificado">Certificación y códigos de estado</a></li>
+                <li><a href="#dns">Protocolo DNS</a></li>
+                <li><a href="#registro">Tipos de registro</a></li>
+                <li><a href="index.html">PARTE 1</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h3 id="http">HTTP</h3>
+            <p>
+                El protocolo HTTP (Hypertext Transfer Protocol) es el estándar para la comunicación en la web. Permite la transferencia de datos entre un cliente (como un navegador) y un servidor. Opera en un modelo de solicitud-respuesta: el cliente solicita recursos (como páginas web) y el servidor los entrega. HTTP es sin estado, lo que significa que no conserva información de sesiones entre solicitudes. La versión más reciente, HTTP/3, mejora la velocidad y seguridad usando el protocolo QUIC.
+            </p>
+
+            <ul>
+                <li>
+                    Utilizando el protocolo HTTP descarga los documentos en los diferentes
+                    formatos de la web (HTML, CSS, Javascript) así como los recursos asociados
+                    como fuentes, iconos o multimedia (imágenes – vídeos).
+                </li>
+                <li>
+                    Puede negociar algunas características particulares. Por ejemplo, si se
+                    soporta compresión o no.
+                </li>
+                <li>
+                    Interpreta la información en los documentos y renderiza el documento.
+                </li>
+                <li>
+                    Permite recoger información del usuario y enviarla al servidor como parámetros
+                    en una petición web GET o POST. 
+                </li>
+                <li>
+                    Gestiona las cookies que han sido enviadas por los servidores.
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="web">El servidor web</h3>
+            
+            <ul>
+                <li>
+                    El servidor web, soporta el protocolo HTTP / HTTPS.
+                </li>
+                <li>
+                    Atiende a las peticiones del cliente.
+                </li>
+                <li>
+                    Autenticación de Usuarios.
+                </li>
+                <li>
+                    SSL/ TLS
+                </li>
+                <li>
+                    De forma nativa, o mediante módulos, permite ejecutar aplicaciones de
+                    diferentes formas
+                    <ul>
+                        <li>CGI : Common Gateway Interface</li>
+                        <li>PHP</li>
+                        <li>Phyton</li>
+                        <li>Java</li>
+                    </ul>
+                </li>
+                <li>
+                    Puede haber módulos que permitan de forma transparente alterar el contenido
+                    para optimizarlo o con otros fines.
+                    <ul>
+                        <li>HTML, Javascript, AJAX</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="protocolo">El protocolo HTTP</h3>
+            <ul>
+                <li>
+                    Orientado a petición / respuesta (Request / Response)
+                </li>
+                <li>
+                    Soporta los métodos : GET, POST, HEAD, PUT, DELETE, CONNECT,
+                    OPTIONS, TRACE, PATCH
+                </li>
+                <li>
+                    Las peticiones y respuestas transportan información adicional en los
+                    encabezados HTTP.
+                </li>
+                <li>
+                    Cada petición retorna un código de estado. El mensaje suele ser
+                    personalizable.
+                </li>
+                <li>
+                    Cada petición podría ir en una conexión independiente pero actualmente se
+                    suele utilizar una única conexión para varias peticiones a no ser que se indique
+                    lo contrario. Esto ahorra recursos del servidor.
+                </li>
+                <li>
+                    Las cookies son un mecanismo para la gestión de estado en el protocolo
+                    HTTP (RFC2109)
+                </li>
+            </ul>
+
+            <img src="img/mvc.png">
+            <img src="img/protocolo.png">
+            
+            <hr>
+
+            <h3 id="certificado">Certificación y Códigos de Estado</h3>
+            <img src="img/ssl.png">
+            <ul>
+                <li>1XX-Mensajes Informativos</li>
+                <li>2XX-Exito
+                    <ul>
+                        <li>200 OK</li>
+                        <li>201 Created</li>
+                        <li>202 Accepted</li>
+                        <li>204 No Content</li>
+                    </ul>
+                </li>
+                <li>3XX-Redirecciones
+                    <ul>
+                        <li>301 Moved Permanently</li>
+                        <li>302 Found</li>
+                        <li>303 See Other</li>
+                        <li>304 Not Modified</li>
+                    </ul>
+                </li>
+                <li>4XX-Errores del Cliente
+                    <ul>
+                        <li>400 Bad Request</li>
+                        <li>401 Unauthorized</li>
+                        <li>403 Forbidden</li>
+                        <li>404 Not Found</li>
+                    </ul>
+                </li>
+                <li>5XX-Errores del Servidor
+                    <ul>
+                        <li>500 Internal Server Error</li>
+                        <li>501 Not Implemented</li>
+                        <li>502 Bad Gateway</li>
+                        <li>503 Service Unavailable</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <h3 id="dns">Protocolo DNS</h3>
+            <p>
+                El sistema de nombres de dominio (DNS) es un sistema de nomenclatura jerárquico para dispositivos conectados a Internet o a una red privada. Asocia información variada con nombres de dominio asignados a cada uno de los participantes. La mayoría de los servicios de Internet dependen de la resolución de nombres de dominio para funcionar.
+            </p>
+            <ul>
+                <li>
+                    DNS (Domain Name System) protocolo capa aplicación:
+                    <ul>
+                        <li>
+                            Su función es resolver nombres (dominios) legibles para las personas en
+                            identificadores binarios (direcciones IP) legibles para las máquinas
+                        </li>
+                        <li>
+                            El servidor DNS utiliza una base de datos distribuida y jerárquica que
+                            almacena información asociada a nombres de dominio.
+                        </li>
+                        <li>Utiliza el puerto UDP 53.</li>
+                    </ul>
+                </li>
+                <li>
+                    https://es.deap.daw.org
+                    <ul>
+                        <li>.org-dominio de nivel superior (TLD)</li>
+                        <li>daw-subdominio, dominio de segundo nivel.</li>
+                        <li>deap-subdominio, dominio de tercer nivel.</li>
+                        <li>es.deap.daw.org-hostname, nodo de nombre completo (FQDN)</li>
+                    </ul>
+                </li>
+                <li>Normalmente se utiliza servidores DNS de los ISPs.</li>
+                <li>
+                    Funcionamiento:
+                    <ul>
+                        <li>
+                            Los servidores DNS que reciben la petición, buscan en primer lugar si
+                            disponen de la respuesta en la memoria caché.
+                        </li>
+                        <li>Si lo encuentran, sirven la respuesta</li>
+                        <li>En caso contrario, inician la búsqueda en otros DNS.</li>
+                        <li>
+                            Una vez encontrada la respuesta, el servidor DNS guardará el resultado en
+                            su memoria caché para futuros usos y devuelve el resultado.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Reenviadores: consultas a nombres DNS externos a servidores DNS
+                    normalmente fuera de la red.
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="registro">Tipos de registro</h3>
+            <ul>
+                <li><b>A</b> Permite traducir nombres a direcciones IPv4</li>
+                <li><b>AAAA</b>Permite traducir nombres a direcciones IPv6</li>
+                <li>
+                    <b>CNAME</b> Define un alias a un nombre de dominio. Sirve por ejemplo para poder
+                    acceder con diferente nombre a diferentes servicios como ftp o www
+                </li>
+                <li><b>NS</b> Establece una asociación entre servidores de nombres y dominio</li>
+                <li><b>MX</b> Indica los nombres de los servidores de correo del dominio</li>
+                <li><b>PTR</b> Permite traducir IP a nombre de dominio</li>
+                <li>
+                    <b>SOA</b> Proporciona información sobre el servidor de nombres primario de la zona
+                    de autoridad.
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="resolucion">Resolucion directa vs indirecta</h3>
+            <p>La resolución directa, permite traducir un nombre a una dirección IP</p>
+            <p>
+                La resolución inversa, mediante la definición de registros PTR permite obtener
+
+                el nombre que corresponde con una dirección IP. Se basa en el dominio in-
+                addr.arpa. Se van añadiendo los diferentes números en la IP en sentido inverso.
+            </p>
+            <p>El campo TTL (time to live)</p>
+            <ul>
+                <li>
+                    Define el tiempo que debe vivir ese registro en las memorias caché de los
+                    servidores antes de que se vuelvan a solicitar.
+                </li>
+                <li>Todos los registros de la caché DNS tienen este campo.</li>
+                <li>
+                    Guarda una relación directa con el tiempo que tardan en propagarse los
+                    cambios.
+                </li>
+            </ul>
+            <p>Mi trabajo de configuración de protocolo DNS - <a href="https://docs.google.com/presentation/d/1apjWUwZqYdVJGUMT4GOIsyc27MMkyTpb8Uv-bzhQtvo/edit?usp=sharing"> DNS </a></p>
+        </main>
+    </body>
+</html>
