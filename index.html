@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Pablo Caldito Gómez">
+        <link rel="stylesheet" href="css/css.css">
+    </head>
+    <body>
+        <header>Diario de Aprendizaje</header>
+        <nav>
+            <ul>
+                <li><a href="#git">GIT</a></li>
+                <li><a href="#areas">Areas</a></li>
+                <li><a href="#estados">Los estados de los ficheros</a></li>
+                <li><a href="#basicos">Git comandos Básicos</a></li>
+                <li><a href="#comandos">Git comandos</a></li>
+                <li><a href="#ramas">Trabajar con ramas</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h3 id="git">Git</h3>
+            <p>
+                Es un SERVICIO (estándar) de comunicación y gestión de
+                información entre local y remoto.
+            </p>
+
+            <hr>
+
+            <h3 id="areas">Areas</h3>
+            <ul>
+                <li>Directorio de trabajo, donde estan los archivos</li>
+                <li>Staging, área de preparación, no guardado del todo</li>
+                <li>Repositorio Local, se encuentra en nuestro ordenador</li>
+                <li>Repositorio Remoto, centraliza el repositorio</li>
+            </ul>
+
+            <hr>
+
+            <h3 id="estados">Los estados de los ficheros</h3>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Explicación</th>
+                </tr>
+                <tr>
+                    <td>Untracked</td>
+                    <td>El fichero no está bajo el control de versiones. No está en el repositorio.</td>
+                </tr>
+                <tr>
+                    <td>Unmodified</td>
+                    <td>
+                        El fichero está en el repositorio pero no ha sido
+                        modificado desde su última versión confirmada.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Modified</td>
+                    <td>
+                        Los datos/ficheros se han modifcado, pero
+                        todavía no lo has confirmado a tu base de datos
+                    </td>
+                </tr>
+                <tr>
+                    <td>Staged</td>
+                    <td>
+                        Se ha marcado un archivo modificado en su
+                        versión actual para que vaya en tu próxima confirmación.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Commited</td>
+                    <td>
+                        Los datos/ficheros están almacenados de
+                        manera segura en tu base de datos local
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <h3 id="basicos">Git comandos básicos</h3>
+            <ul>
+                <li>
+                    git help
+                    <ul>
+                        <li>muestra la ayuda del comando indicado</li>
+                    </ul>
+                </li>
+                <li>
+                    git init
+                    <ul>
+                        <li>inicializa el repositorio local</li>
+                    </ul>
+                </li>
+                <li>
+                    git log
+                    <ul>
+                        <li>lista los commits del repositorio y los punteros y ramas
+                            <ul>
+                                <li>--oneline</li>
+                                <li>--oneline --all</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git status
+                    <ul>
+                        <li>
+                            muestra la lista de los archivos que se han cambiado junto con
+                            los archivos que están por ser preparados o confirmados
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git add
+                    <ul>
+                        <li>
+                            añade el archivo a staging
+                            <ul>
+                                <li>git add ., añade todos los archivos</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git commit
+                    <ul>
+                        <li>
+                            guarda los archivos en el repositorio local
+                            <ul>
+                                <li>-m, añade un mensaje</li>
+                                <li>--amend, edita el mensaje</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git diff
+                    <ul>
+                        <li>mostrar diferencias entre los archivos</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="comandos">Git comandos</h3>
+            <ul>
+                <li>
+                    git remote
+                    <ul>
+                        <li>
+                            mostrará una lista con los nombres de los remotos que hayas
+                            especificado (verás al menos ‘origin’)
+                            <ul>
+                                <li>git remote show, ver más información acerca de
+                                    un repositorio remoto en particular. </li>
+                                <li>git remote rename, cambiar el nombre del repositorio remoto</li>
+                                <li>git remote rm, eliminar alguna referencia del repositorio local y no elimina su historial del sistemas de versiones.
+                                    <ul>
+                                        <li>git rm --cached mueve los archivos que indiquemos al estado untracked</li>
+                                        <li>git rm --force elimina los archivos de git y del disco</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git reset HEAD
+                    <ul>
+                        <li>quita los archivos de staged y los devuelve a sus estado anterior (unstaged).</li>
+                    </ul>
+                </li>
+                <li>
+                    git branch –M main
+                    <ul>
+                        <li>la rama master local pasa a llamarse main, como la de por defecto de GITHub.</li>
+                    </ul>
+                </li>
+                <li>
+                    git push -u
+                    <ul>
+                        <li>genera un canal de
+                            comunicacion de subida (upstream), entre la rama local y la remota: <b>git push -u origin </b></li>
+                    </ul>
+                </li>
+                <li>
+                    git clean 
+                    <ul>
+                        <li>
+                            hace una eliminación permanente del sistema de archivos
+                            (recursos untracked), similar a ejecutar la utilidad rm de línea de
+                            comandos.
+                            <ul>
+                                <li>git clean –n, indica los ficheros que eliminaría</li>
+                                <li>git clean –f, elimina los ficheros</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git checkout
+                    <ul>
+                        <li>
+                            el directorio de trabajo coincidirá con el estado
+                            exacto del id_commit. Se puede consultar y editar archivos, compilar el
+                            proyecto y realizar pruebas sin perder el estado actual del proyecto.
+                            Nada lo que se haga se guardará en el repositorio. Para continuar con el
+                            desarrollo, hay que volver al estado “actual” del proyecto, mediante
+                            git checkout main
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git reset
+                    <ul>
+                        <li>git reset HEAD [file] devuelve el fichero al estado untracked.</li>
+                        <li>git reset [--soft || --mixed || --hard] [HEAD^ || id_commit] elimina los commits que se le indica por argumento, y en función del modo.</li>
+                        <li>
+                            git revert [HEAD^ || id_commit] sirve para deshacer cambios
+                            efectuados en el historial de confirmaciones de un repositorio. Una
+                            operación de reversión tomará la confirmación especificada, invertirá los
+                            cambios de dicha confirmación y creará una "confirmación de reversión"
+                            nueva. Entonces, los punteros de referencia se actualizarán para apuntar
+                            a la nueva confirmación de reversión, lo cual la convertirá en la punta de
+                            la rama.
+                            
+                            Así, se evita que Git pierda el historial, lo cual resulta importante para la
+                            integridad del historial de revisiones y para que la colaboración sea
+                            fiable. ESTA ES LA ACCIÓN NECESARIO PARA EVITAR ERRORES DE
+                            SINCRONIZACIÓN CON EL SERVIDOR REMOTO.
+                            <ul>
+                                <li>-e || --edit te permite incluir un mensaje en el commit, es la
+                                    acción por defecto.</li>
+                                <li>--no-edit añade el mensaje por defecto</li>
+                                <li>-n || --no-commit revierte lo indicado pero no realiza el nuevo
+                                    commits</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    git tag
+                    <ul>
+                        <li>
+                            muestra las etiquetas que existen y se han definido en el
+                            repositorio local git.
+                            <ul>
+                                <li>git tag -a [nombre_etiqueta] -m [“Mensaje”] genera la etiqueta con el
+                                    nombre dado en el commit que nos encontremos.</li>
+                                <li>git tag -a [id_commit] -m [“Mensaje”] genera la etiqueta con el nombre
+                                    dado en el commit que se indica por su id.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <h3 id="ramas">Trabajar con ramas</h3>
+                <div>
+                    Bifurcaciones de nuevas versiones, con respecto a la rama máster.
+                    Todos los commit se aplican sobre una rama.
+                    Por defecto trabajamos sobre la rama máster.
+                    Crear una rama consiste en copiar un commit de una rama
+                    determinada, pásalo a la nueva rama y continuar el trabajo, sin afectar
+                    el flujo del trabajo principal.
+                </div><br/>
+                <img id="rama" src="img/rama.png">
+                <br/>
+                <ul id="#tabla_ramas">
+                    <li>
+                        git branch se usa para listar, crear o borrar ramas.
+                        <ul>
+                            <li>git branch lista las ramas existentes</li>
+                            <li>git branch [nombre_nueva_rama] crea una nueva rama</li>
+                            <li>git branch -d [nombre_nueva_rama] elimina una rama existente.</li>
+                            <li>git branch –m [old_nombre_rama] [new_nombre_rama] cambia el nombre de una rama</li>
+                        </ul>
+                    </li>
+                    <li>git show te permite ver el último commit a qué ramas se encuentra pegado.</li>
+                    <li>
+                        git log muestra los IDs de los commits del repositorio local.
+                        <ul>
+                            <li>git log –p incluye el historial de las confirmaciones, incluyendo todos los archivos y sus cambios</li>
+                            <li>git log --oneline muestra historial commits en una sola línea x commit.</li>
+                            <li>git log --oneline --all muestra historial commits de todas las ramas</li>
+                        </ul>
+                    </li>
+                    <li>
+                        git checkout te permite moverte entre las ramas.
+                        <ul>
+                            <li>git checkout –b [nombre_nueva_branch] crea una nueva rama y automáticamente se cambia a ella.</li>
+                            <li>git checkout [ID_commit] podemos volver a cualquier versión anterior en base al ID del commit..</li>
+                        </ul>
+                    </li>
+                    <li>
+                        git diff se usa para ver una lista de todos los conflictos presentes
+                        <ul>
+                            <li>git diff [branch_origen] [branch_destino] ver los conflictos que hay entre ramas, por ejemplo antes de fusionarlas.</li>
+                        </ul>
+                    </li>
+                    <li>git merge [nombre rama] se usa para fusionar una rama con otra rama activa.</li>
+                    <li>git merge --abort descarta la fusión por conflictos en la misma.</li>
+                    <li>git log --merge te muestra información de los 2 commits que han generado el conflicto</li>
+                </ul>
+                <br/>
+                <ul>
+                    <li>Copiar un repositorio remoto en local:
+                        <pre><code>git clone [remote_repo] [directory_local]</code></pre>
+                    </li>
+                    <li>Copiar únicamente una versión específica (tag) del repositorio:
+                        <pre><code>git clone --branch [tag] [remote_repo]</code></pre>
+                    </li>
+                    <li>Copiar una rama específica de un repositorio:
+                        <pre><code>git clone --branch [branch_name] --single-branch [remote_repo]</code></pre>
+                    </li>
+                    <li>Fusionar todos los cambios del repositorio remoto a tu directorio local:
+                        <pre><code>git pull [servidor_remoto]</code></pre>
+                    </li>
+                    <li>Descargar una rama específica del servidor remoto:
+                        <pre><code>git pull [servidor_remoto] [rama]</code></pre>
+                    </li>
+                    <li>Mostrar un proceso detallado al hacer pull:
+                        <pre><code>git pull --verbose [servidor_remoto]</code></pre>
+                    </li>
+                    <li>Realizar un fetch + rebase al servidor remoto:
+                        <pre><code>git pull --rebase [servidor_remoto]</code></pre>
+                    </li>
+                </ul>
+                
+                <h3>Comandos de <code>git fetch</code></h3>
+                <ul>
+                    <li>Recuperar todos los datos del proyecto remoto sin fusionarlos:
+                        <pre><code>git fetch [nombre_servidor_remoto]</code></pre>
+                    </li>
+                    <li>Cambiar a la rama <code>fetch_HEAD</code> después de hacer fetch:
+                        <pre><code>git checkout fetch_HEAD</code></pre>
+                    </li>
+                    <li>Crear una nueva rama desde el fetch:
+                        <pre><code>git checkout -b [new_Branch]</code></pre>
+                    </li>
+                </ul>
+                <br/>
+                <ul>
+                    <li>Ver las diferencias entre una rama local y una remota:
+                        <pre><code>git diff [rama_local] [rama_remota_cambios]</code></pre>
+                    </li>
+                    <li>Hacer pull de una rama específica:
+                        <pre><code>git pull [rama]</code></pre>
+                    </li>
+                    <li>Fusionar una rama específica:
+                        <pre><code>git merge [rama]</code></pre>
+                    </li>
+                </ul>
+        </main>
+    </body>
+</html>
