@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Pablo Caldito Gómez">
+        <link rel="stylesheet" href="css/css.css">
+    </head>
+    <body>
+        <header>APACHE</header>
+        <nav>
+            <ul>
+                <li><a href="index.html">PARTE 1</a></li>
+                <li><a href="diario2.html">PARTE 2</a></li>
+                <li><a href="#apache">Definición y características</a></li>
+                <li><a href="#instalación">Instalación Servidor Apache</a></li>
+                <li><a href="#estructura">Estrcutura de Apache</a></li>
+                <li><a href="#directivas">Directivas Básicas</a></li>
+                <li><a href="#archivos">Archivos Importantes</a></li>
+                <li><a href="#configuracion">Configuración General</a></li>
+                <li><a href="#bloques">Directivas de Bloque</a></li>
+                <li><a href="#options">Options</a></li>
+                <li><a href="#allowoverride">AllowOverride</a></li>
+                <li><a href="#orden">Orden de Restricciones</a></li>
+                <li><a href="#runtime">Orden de Lectura en Runtime</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h3 id="apache">Apache</h3>
+            <p>
+                Apache es un servidor web HTTP de código abierto, para plataformas Unix (BSD, GNU/Linux, etc.), Microsoft Windows, Macintosh y otras, que implementa el protocolo HTTP/1.1 y la noción de sitio virtual. Cuando se instala, se crea un servidor web que se ejecuta en segundo
+            </p>
+            <p>Ventajas y características</p>
+            <ul>
+                <li>Servidor web HTTP de código abierto</li>
+                <li>
+                    Se desarrolla dentro del proyecto HTTP Server
+                    (httpd) de la Apache Software Fundation
+                </li>
+                <li>Implementa el protocolo HTTP/1.1</li>
+                <li>Modular</li>
+                <li>Multi-plataforma (Windows, Linux, MacOS)</li>
+                <li>Muy estable</li>
+                <li>Tradicionalmente solución más popular (soporte)</li>
+            </ul>
+            <p>Sitio oficial de documentación - <a href="https://httpd.apache.org/docs/2.4/es/">Documentación Apache</a> </p>
+            <img src="img/apache.png" alt="Logo de Apache">
+
+            <hr>
+
+            <h3 id="instalación">Instalación Servidor Apache</h3>
+            <p>Enlace a mi tarea con capturas - <a href="https://docs.google.com/presentation/d/1ec8N9fX_bXkVJbCfh-gZep67dFod2zFn5_ZxQIL_1hU/edit?usp=sharing">Presentación</a></p>
+            <p>Algunas directrices básicas</p>
+            <ul>
+                <li>Start - inicia el servicio</li>
+                <li>Stop - detiene el servicio</li>
+                <li>Restart - reinicia el servicio</li>
+                <li>Reload - recarga la configuración sin matar las conexiones activas</li>
+                <li>Status - presenta el estado del servicio</li>
+            </ul>
+
+            <hr>
+
+            <h3 id="estructura">Estructura de Apache</h3>
+            <ul>
+                <li>
+                    Contenido aplicaciones Web del servidor web Apache /var/www
+                    <ul>
+                        <li>DocumentRoot - directorio raíz de los documentos</li>
+                        <li>Alias - directorios virtuales</li>
+                        <li>Directory - configuración de directorios</li>
+                        <li>Files - configuración de archivos</li>
+                        <li>Location - configuración de URL</li>
+                    </ul>
+                </li>
+                <li>
+                    Configuración servdor web apache /etc/apache2
+                    <ul>
+                        <li>apache2.conf - configuración general</li>
+                        <li>ports.conf - configuración de puertos</li>
+                        <li>sites-available - configuración de sitios</li>
+                        <li>sites-enabled - sitios habilitados</li>
+                        <li>mods-available - módulos disponibles</li>
+                        <li>mods-enabled - módulos habilitados</li>
+                    </ul>
+                </li>
+                <li>
+                    Registros ficheros de actividad del servidor web Apache /var/log/apache2
+                    <ul>
+                        <li>access.log - registro de accesos</li>
+                        <li>error.log - registro de errores</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Tipos de Directorios</p>
+            <ul>
+                <li>
+                    Directorios de Contenido
+                    <ul>
+                        <li>/var/www ruta por defecto para alojamiento web (htdoc)</li>
+                        <li>/var/www/midominio ruta para los host virtuales</li>
+                        <li>/var/www/html ruta del virtual host / site por defecto de Apache</li>
+                    </ul>
+                </li>
+                <li>
+                    Directorios de Registros
+                    <ul>
+                        <li>/var/log/apache2 directorio de registros de Apache</li>
+                        <li>/var/log/apache2/access.log registro de accesos</li>
+                        <li>/var/log/apache2/error.log registro de errores</li>
+                    </ul>
+                </li>
+                <li>
+                    Directorios de CONFIGURACIÓN
+                    <ul>
+                        <li>/etc/apache2 directorio de configuración de Apache</li>
+                        <li>/etc/apache2/apache2.conf archivo de configuración principal</li>
+                        <li>/etc/apache2/ports.conf archivo de configuración de puertos</li>
+                        <li>/etc/apache2/sites-available directorio de configuración de sitios</li>
+                        <li>/etc/apache2/sites-enabled directorio de sitios habilitados</li>
+                        <li>/etc/apache2/mods-available directorio de módulos disponibles</li>
+                        <li>/etc/apache2/mods-enabled directorio de módulos habilitados</li>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="directivas">Directivas Básicas</h3>
+            <p>Las directivas básicas son configuraciones esenciales para el funcionamiento del servidor Apache. Estas incluyen:</p>
+            <ul>
+                <li><strong>ServerName:</strong> Define el nombre del servidor, usado principalmente en la resolución DNS.</li>
+                <li><strong>ServerRoot:</strong> Especifica el directorio donde se encuentran los archivos de configuración.</li>
+                <li><strong>ServerAdmin:</strong> Correo electrónico del administrador que aparece en mensajes de error.</li>
+                <li><strong>DocumentRoot:</strong> Indica el directorio raíz donde se alojan los archivos que se servirán a los clientes.</li>
+                <li><strong>PidFile:</strong> Archivo donde se guarda el identificador del proceso del servidor.</li>
+                <li><strong>User y Group:</strong> Usuario y grupo bajo los cuales se ejecuta Apache.</li>
+                <li><strong>ErrorLog:</strong> Archivo que registra los errores del servidor.</li>
+                <li><strong>Listen:</strong> Dirección IP y puerto donde el servidor escucha conexiones.</li>
+                <li><strong>DirectoryIndex:</strong> Archivos predeterminados que se muestran al acceder a un directorio.</li>
+                <li><strong>TypesConfig:</strong> Archivo que contiene la lista de tipos MIME.</li>
+                <li><strong>DefaultType:</strong> Tipo MIME predeterminado para archivos sin extensión reconocida.</li>
+            </ul>
+
+            <hr>
+
+            <h3 id="archivos">Archivos Importantes</h3>
+            <p>Apache utiliza varios archivos importantes para su configuración y funcionamiento:</p>
+            <ul>
+                <li><strong>Configuración Global:</strong> El archivo <code>/etc/apache2/apache2.conf</code> contiene las configuraciones generales del servidor.</li>
+                <li><strong>Variables de Entorno:</strong> El archivo <code>/etc/apache2/envvars</code> define variables de entorno usadas por el servidor.</li>
+                <li>
+                    Variables clave incluidas en <code>envvars</code>:
+                    <ul>
+                        <li><code>APACHE_RUN_USER</code> y <code>APACHE_RUN_GROUP</code>: Usuario y grupo para la ejecución.</li>
+                        <li><code>APACHE_RUN_DIR</code>, <code>APACHE_LOCK_DIR</code>: Directorios temporales.</li>
+                        <li><code>APACHE_PID_FILE</code>: Archivo de proceso PID.</li>
+                        <li><code>APACHE_LOG_DIR</code>: Directorio de logs.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="configuracion">Configuración General</h3>
+            <p>La configuración de Apache incluye una estructura jerárquica y modular que facilita la administración:</p>
+            <ul>
+                <li><strong>Estructura de Configuración:</strong>
+                    <ul>
+                        <li><code>sites-available</code>: Configuración de sitios disponibles.</li>
+                        <li><code>sites-enabled</code>: Configuración de sitios habilitados.</li>
+                        <li><code>mods-available</code>: Módulos disponibles.</li>
+                        <li><code>mods-enabled</code>: Módulos habilitados.</li>
+                    </ul>
+                </li>
+                <li><strong>Documentación:</strong> Los archivos de configuración permiten comentarios para documentar las configuraciones.</li>
+                <li><strong>Tipos MIME:</strong> Configuración para relacionar extensiones de archivos con su tipo de contenido.</li>
+            </ul>
+
+            <hr>
+
+            <h3 id="bloques">Directivas de Bloque</h3>
+            <p>Las directivas de bloque son configuraciones que aplican a contextos específicos del servidor:</p>
+            <ul>
+                <li>
+                    <strong>Directory:</strong> Aplica directivas a un directorio, sus subdirectorios y contenidos. Utiliza una ruta absoluta. Ejemplo:
+                    <pre><code>
+                        <Directory /ruta_absoluta>
+                            # Opciones aquí
+                        </Directory>
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>Files:</strong> Aplica directivas a un conjunto específico de archivos. Ejemplo:
+                    <pre><code>
+                        <Files "archivo.html">
+                            # Opciones aquí
+                        </Files>
+                        <FilesMatch "^\.ht">
+                            # Opciones aquí
+                        </FilesMatch>
+                    </code></pre>
+                </li>
+                <li>
+                    <strong>Location:</strong> Define configuraciones basadas en la URL solicitada. Ejemplo:
+                    <pre><code>
+                        <Location /ruta>
+                            # Opciones aquí
+                        </Location>
+                    </code></pre>
+                    Las directivas <strong>Location</strong> pueden sobrescribir configuraciones definidas en <strong>Directory</strong>.
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="options">Options</h3>
+            <p>La directiva <strong>Options</strong> controla las características disponibles en un directorio:</p>
+            <ul>
+                <li><strong>None:</strong> Desactiva todas las opciones.</li>
+                <li><strong>All:</strong> Activa todas las opciones, excepto <code>Multiviews</code>.</li>
+                <li><strong>FollowSymLinks:</strong> Permite seguir enlaces simbólicos.</li>
+                <li><strong>Indexes:</strong> Muestra el contenido del directorio si no hay un archivo <code>DirectoryIndex</code>.</li>
+                <li><strong>Includes:</strong> Habilita Server-Side Includes (SSI).</li>
+                <li><strong>Multiviews:</strong> Permite gestionar múltiples vistas, seleccionando la más apropiada.</li>
+            </ul>
+
+            <hr>
+
+            <h3 id="allowoverride">AllowOverride</h3>
+            <p>La directiva <strong>AllowOverride</strong> controla si Apache considera las configuraciones en archivos <code>.htaccess</code>. Opciones:</p>
+            <ul>
+                <li><strong>None:</strong> Ignora los archivos <code>.htaccess</code> (opción predeterminada).</li>
+                <li><strong>All:</strong> Permite que las directivas en <code>.htaccess</code> sobrescriban configuraciones anteriores.</li>
+                <li>
+                    Tipos de directivas permitidas en <code>AllowOverride directive_type</code>:
+                    <ul>
+                        <li><strong>AuthConfig:</strong> Configuraciones de autenticación (e.g., <code>AuthType</code>).</li>
+                        <li><strong>FileInfo:</strong> Control de tipos de documento (e.g., <code>ErrorDocument</code>).</li>
+                        <li><strong>Indexes:</strong> Control de indexado de directorios.</li>
+                        <li><strong>Limit:</strong> Restricción de acceso por host.</li>
+                        <li><strong>Options:</strong> Funcionalidades específicas de directorios.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3 id="orden">Orden de Restricciones</h3>
+            <p>La directiva <strong>Order</strong> define cómo Apache evalúa las restricciones <strong>Allow</strong> y <strong>Deny</strong>. Opciones:</p>
+            <ul>
+                <li><strong>Order allow, deny:</strong> Primero permite el acceso según las reglas <strong>Allow</strong>, luego lo niega según las reglas <strong>Deny</strong>.</li>
+                <li><strong>Order deny, allow:</strong> Primero niega el acceso según las reglas <strong>Deny</strong>, luego lo permite según las reglas <strong>Allow</strong>.</li>
+            </ul>
+
+            <hr>
+
+            <h3 id="runtime">Orden de Lectura en Runtime</h3>
+            <p>Apache aplica configuraciones en el siguiente orden:</p>
+            <ol>
+                <li>Bloques <strong>Directory</strong>.</li>
+                <li>Archivos <code>.htaccess</code>, que pueden sobrescribir configuraciones de <strong>Directory</strong>.</li>
+                <li>Bloques <strong>Files</strong>.</li>
+                <li>Bloques <strong>Location</strong>.</li>
+            </ol>
+        </main>
+    </body>
+</html>
